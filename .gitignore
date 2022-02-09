@@ -1,0 +1,19 @@
+/server/public/uploads/
+/server/.env*
+/client/node_modules/
+/server/node_modules/
+/server/config/default.json
+/client/.eslintcache
+/server/.eslintcache
+node_modules/
+client/.python-version
+.DS_Store
+.python-version
+uploadPhotos.js
+deleteAllPhotosInAlbum.js
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+

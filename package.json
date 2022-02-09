@@ -1,0 +1,24 @@
+{
+  "name": "download-image",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=14.15.1"
+  },
+  "description": "photography website",
+  "scripts": {
+    "server": "npm run server --prefix server",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "NODE_ENV=production concurrently \"npm run start --prefix server\" \"npm start --prefix client\"",
+    "start:eb": "npm install --prefix client && npm run build --prefix client && npm install --prefix server && npm run start --prefix server"
+  },
+  "author": "Dylan Montagu",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "form-data": "^4.0.0"
+  }
+}

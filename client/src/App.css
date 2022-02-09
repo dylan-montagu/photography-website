@@ -1,0 +1,67 @@
+body {
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
+/* blur image on hover */
+.img-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 100%; /* for IE 6 */
+}
+
+.img-wrapper img {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  vertical-align: middle;
+}
+
+.img-wrapper:hover img {
+  opacity: 0.97;
+  -webkit-transform: scale(1.01); /* Safari and Chrome */
+  -moz-transform: scale(1.01); /* Firefox */
+  -ms-transform: scale(1.01); /* IE 9 */
+  -o-transform: scale(1.01); /* Opera */
+  transform: scale(1.01);
+}
+
+.img-wrapper:hover .middle {
+  opacity: 0.8;
+}
+
+.middle {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  position: absolute;
+  opacity: 0.7;
+  bottom: 20px;
+  left: 20px;
+  /* transform: translate(-50%, -50%); */
+  text-align: center;
+  background-color: #0d0d0d;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navigation {
+  position: fixed;
+  bottom: -1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

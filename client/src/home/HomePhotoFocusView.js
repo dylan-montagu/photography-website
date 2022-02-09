@@ -1,0 +1,62 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+import PhotoFocusView from '../sharedComponents/PhotoFocusView';
+
+const HomePhotoFocusView = ({ match }) => {
+  const history = useHistory();
+
+  const [photo, setPhoto] = useState({});
+  const [index, setIndex] = useState(0);
+
+  const previousLink = `/index/${(
+    parseInt(match.params.index) - 1
+  ).toString()}`;
+  const nextLink = `/index/${(parseInt(match.params.index) + 1).toString()}`;
+  const enterLink = `/`;
+
+  const getPhoto = async (curIndex) => {
+    setIndex(curIndex);
+    const res = await axios.get('/api/albums/name/default/' + curIndex);
+    setPhoto(res.data);
+  };
+
+  const checkKey = (e) => {
+    e = e || window.event;
+    if (e.key === 'ArrowLeft' && index > 0) {
+      history.push(previousLink);
+    } else if (e.key === 'ArrowRight' && index < photo.nPhotos - 1) {
+      history.push(nextLink);
+    } else if (e.key === 'Enter') {
+      history.push(enterLink);
+    }
+  };
+
+  document.onkeydown = checkKey;
+  useEffect(
+    () => () => {
+      document.onkeydown = null;
+    },
+    []
+  );
+
+  useEffect(() => {
+    getPhoto(match.params.index);
+  }, [match.params.index, match.params.id]);
+
+  return (
+    <div>
+      <PhotoFocusView
+        match={match}
+        photo={photo}
+        index={index}
+        previousLink={previousLink}
+        nextLink={nextLink}
+        enterLink={enterLink}
+      ></PhotoFocusView>
+    </div>
+  );
+};
+
+export default HomePhotoFocusView;
