@@ -11,6 +11,7 @@ client/.python-version
 .python-version
 uploadPhotos.js
 deleteAllPhotosInAlbum.js
+README.md.personal
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
